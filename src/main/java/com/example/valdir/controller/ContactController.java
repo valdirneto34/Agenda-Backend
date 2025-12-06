@@ -3,6 +3,7 @@ package com.example.valdir.controller;
 import com.example.valdir.dto.ContactRequestDTO;
 import com.example.valdir.dto.ContactResponseDTO;
 import com.example.valdir.service.ContactService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +26,7 @@ public class ContactController {
     }
 
     @PostMapping
-    public ResponseEntity<ContactResponseDTO> create(@RequestBody ContactRequestDTO dto) {
+    public ResponseEntity<ContactResponseDTO> create(@Valid @RequestBody ContactRequestDTO dto) {
         ContactResponseDTO savedContact = contactService.save(dto);
         return new ResponseEntity<>(savedContact, HttpStatus.CREATED);
     }
