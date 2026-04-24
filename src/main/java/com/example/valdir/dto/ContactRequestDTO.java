@@ -13,7 +13,7 @@ public class ContactRequestDTO {
 
     @NotBlank(message = "Email is required")
     @Email(message = "Invalid email format")
-    @Pattern(regexp = "^[A-Za-z0-9]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$" , message = "Formato de e-mail inválido" )
+    @Pattern(regexp = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$" , message = "Formato de e-mail inválido" )
     private String email;
 
     @NotBlank(message = "Phone is required")
